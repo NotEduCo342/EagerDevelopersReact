@@ -1,0 +1,46 @@
+/* src/components/Hero.css */
+
+.btn-animated-border {
+  position: relative; /* This is crucial for positioning the pseudo-elements */
+  overflow: hidden;   /* Hides the parts of the border that are outside the button */
+  -webkit-backface-visibility: hidden; /* Fix for rendering glitches in some browsers */
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* This creates the horizontal lines (top and bottom) */
+.btn-animated-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%; /* Start in the middle */
+  width: 0;  /* Start with zero width */
+  height: 100%;
+  border-top: 2px solid #0ea5e9; /* sky-500 color */
+  border-bottom: 2px solid #0ea5e9;
+  transform: translateX(-50%); /* Center the element */
+  transition: width 0.4s ease-in-out;
+}
+
+/* This creates the vertical lines (left and right) */
+.btn-animated-border::after {
+  content: '';
+  position: absolute;
+  top: 50%; /* Start in the middle */
+  left: 0;
+  width: 100%;
+  height: 0; /* Start with zero height */
+  border-left: 2px solid #0ea5e9;
+  border-right: 2px solid #0ea5e9;
+  transform: translateY(-50%);
+  transition: height 0.4s ease-in-out;
+}
+
+/* On hover, the pseudo-elements grow to full size */
+.btn-animated-border:hover::before {
+  width: 100%;
+}
+
+.btn-animated-border:hover::after {
+  height: 100%;
+}
