@@ -30,13 +30,19 @@ const Hero = () => {
               className="w-full h-80 md:h-96 rounded-2xl shadow-2xl border border-gray-100"
             >
               <SwiperSlide>
-                <img src="https://picsum.photos/seed/dev1/800/600" alt="Developer workspace" className="w-full h-full object-cover" />
+                <img src="/images/slider/slider (5).webp" alt="Infinite Webpages" className="w-full h-full object-cover" />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="https://picsum.photos/seed/dev2/800/600" alt="Code on a screen" className="w-full h-full object-cover" />
+                <img src="/images/slider/slider (4).webp" alt="Front-end Island" className="w-full h-full object-cover" />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="https://picsum.photos/seed/dev3/800/600" alt="Creative team meeting" className="w-full h-full object-cover" />
+                <img src="/images/slider/slider (3).webp" alt="Front-end Structure" className="w-full h-full object-cover" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="/images/slider/slider (2).webp" alt="3D Webpage" className="w-full h-full object-cover" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="/images/slider/slider (1).webp" alt="Code Building" className="w-full h-full object-cover" />
               </SwiperSlide>
             </Swiper>
           </div>
