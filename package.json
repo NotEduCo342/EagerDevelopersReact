@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
-    "swiper": "^11.2.10"
+    "react-router-dom": "^7.6.3",
+    "swiper": "^11.2.10",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

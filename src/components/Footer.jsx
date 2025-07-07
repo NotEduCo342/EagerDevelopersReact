@@ -12,7 +12,8 @@ const Footer = () => {
       <ul>
         {links.map((link) => (
           <li key={link.name} className="mb-2">
-            <a href={link.href} className="text-gray-200 hover:text-white transition-colors">
+            {/* UPDATED THIS LINE */}
+            <a href={link.href} className="text-gray-200 hover:text-white hover:-translate-y-0.5 transition-all duration-300 block">
               {link.name}
             </a>
           </li>
@@ -40,7 +41,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
           {/* Brand/Logo Column (aligned left in RTL) */}
           <div className="md:col-span-1 lg:col-span-1">
-             {/* Using a standard font for now, can be customized later */}
+              {/* Using a standard font for now, can be customized later */}
             <h2 className="text-3xl font-bold text-white mb-2">EAGER DEVELOPERS</h2>
             <p className="text-gray-200">Innovating the web, one project at a time.</p>
           </div>
@@ -59,9 +60,10 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} EagerDevelopers. All Rights Reserved.
           </p>
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors"><FaTwitter size={20} /></a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors"><FaInstagram size={20} /></a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors"><FaGithub size={20} /></a>
+            {/* UPDATED THESE 3 LINES */}
+            <a href="#" className="text-gray-300 hover:text-white hover:scale-110 hover:-translate-y-0.5 transition-all duration-300"><FaTwitter size={20} /></a>
+            <a href="#" className="text-gray-300 hover:text-white hover:scale-110 hover:-translate-y-0.5 transition-all duration-300"><FaInstagram size={20} /></a>
+            <a href="#" className="text-gray-300 hover:text-white hover:scale-110 hover:-translate-y-0.5 transition-all duration-300"><FaGithub size={20} /></a>
           </div>
         </div>
       </div>

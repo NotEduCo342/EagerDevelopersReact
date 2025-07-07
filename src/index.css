@@ -1,5 +1,7 @@
 /* src/index.css */
-
+html {
+  scroll-behavior: smooth;
+}
 /* 1. Define the custom font using @font-face */
 @font-face {
   font-family: 'Kalameh'; /* The name we will reference */
