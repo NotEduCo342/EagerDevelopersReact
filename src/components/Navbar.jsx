@@ -1,5 +1,3 @@
-// src/components/Navbar.jsx
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -7,26 +5,25 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // 1. Restored the navLinks data with the submenus
   const navLinks = [
     {
-      title: 'خانه', // Home
+      title: 'خانه',
       href: '/',
       submenu: [
-        { title: 'درباره ما', href: '/about' }, // About Us
-        { title: 'ویژگی‌ها', href: '/features' }, // Features
+        { title: 'درباره ما', href: '/about' },
+        { title: 'ویژگی‌ها', href: '/features' },
       ],
     },
     {
-      title: 'پروژه‌ها', // Projects
+      title: 'پروژه‌ها',
       href: '/projects',
       submenu: [
         { title: 'پروژه ۱', href: '/projects/1' },
         { title: 'پروژه ۲', href: '/projects/2' },
       ],
     },
-    { title: 'تماس با ما', href: '/contact' }, // Contact Us
-    { title: 'ورود', href: '/login' }, // Login
+    { title: 'تماس با ما', href: '/contact' },
+    { title: 'ورود', href: '/login' },
   ];
 
   return (
@@ -35,11 +32,9 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-bold">
           EagerDevelopers
         </Link>
-        
         <nav className="hidden md:flex">
           <ul className="flex items-center space-x-6">
             {navLinks.map((link) => (
-              // 2. Restored the 'relative group' for the hover effect
               <li key={link.title} className="relative group">
                 <Link
                   to={link.href}
@@ -47,8 +42,6 @@ const Navbar = () => {
                 >
                   {link.title}
                 </Link>
-
-                {/* 3. Restored the dropdown menu logic and UI */}
                 {link.submenu && (
                   <ul
                     className="
@@ -56,12 +49,12 @@ const Navbar = () => {
                       bg-black/20 backdrop-blur-lg
                       opacity-0 scale-95 invisible
                       group-hover:opacity-100 group-hover:scale-100 group-hover:visible
+                      group-focus-within:opacity-100 group-focus-within:scale-100 group-focus-within:visible
                       transition-all duration-300 ease-in-out z-30
                     "
                   >
                     {link.submenu.map((item) => (
                       <li key={item.title}>
-                        {/* Note: These submenu links can also be changed to <Link> tags if you create routes for them */}
                         <a
                           href={item.href}
                           className="block w-full text-right px-4 py-2 rounded-md text-sm text-white hover:bg-sky-700/50"
@@ -76,15 +69,12 @@ const Navbar = () => {
             ))}
           </ul>
         </nav>
-
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
       </div>
-
-      {/* The mobile menu remains simple for better UX on touch devices */}
       <div className={`absolute w-full bg-sky-500 md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
         <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navLinks.map((link) => (

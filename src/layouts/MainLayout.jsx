@@ -7,8 +7,8 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
+      {/* Add top padding to this main element */}
       <main className="flex-grow">
-        {/* The Outlet component renders the current page's component */}
         <Outlet />
       </main>
       <Footer />

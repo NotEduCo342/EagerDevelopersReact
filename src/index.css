@@ -8,7 +8,7 @@ html {
   font-style: normal;
   font-weight: 400; /* 400 is the numeric value for 'normal' weight */
   font-display: swap; /* Improves performance */
-  src: url('/fonts/KALAMEH/Kalameh-Regular.ttf') format('truetype');
+  src: url('/fonts/KALAMEH/Kalameh-Regular.woff2') format('truetype');
 }
 
 /* 2. Import Tailwind's base styles */
