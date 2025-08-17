@@ -1,7 +1,6 @@
-// This file will be our single source of truth for project data.
 export const projectData = [
   {
-    id: 'eagerdevelopers-website', // A unique ID for the URL
+    id: 'eagerdevelopers-website', 
     title: 'وب‌سایت ایگر دولوپرز',
     description: 'بازسازی کامل وب‌سایت شرکت با استفاده از تکنولوژی‌های مدرن شامل ری‌اکت و تیلویند.',
     imageUrl: '/images/slider/slider (1).webp',

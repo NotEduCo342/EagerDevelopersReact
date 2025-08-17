@@ -1,20 +1,17 @@
-/* src/index.css */
 html {
   scroll-behavior: smooth;
 }
-/* 1. Define the custom font using @font-face */
+
 @font-face {
-  font-family: 'Kalameh'; /* The name we will reference */
+  font-family: "Kalameh";
   font-style: normal;
-  font-weight: 400; /* 400 is the numeric value for 'normal' weight */
-  font-display: swap; /* Improves performance */
-  src: url('/fonts/KALAMEH/Kalameh-Regular.woff2') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/KALAMEH/Kalameh-Regular.woff2") format("truetype");
 }
 
-/* 2. Import Tailwind's base styles */
 @import "tailwindcss";
 
-/* 3. Define your custom theme variables */
 @theme {
-  --font-kalameh: 'Kalameh', 'sans-serif';
+  --font-kalameh: "Kalameh", "sans-serif";
 }

@@ -1,17 +1,15 @@
-// src/pages/Contact.jsx
-
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -19,27 +17,33 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form data submitted:', formData);
-    // Translated the alert message
-    alert('از پیام شما متشکریم! برای مشاهده داده‌ها، کنسول را بررسی کنید.');
-    setFormData({ name: '', email: '', message: '' });
+    console.log("Form data submitted:", formData);
+
+    alert("از پیام شما متشکریم! برای مشاهده داده‌ها، کنسول را بررسی کنید.");
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="bg-gray-50 py-20">
       <div className="container mx-auto px-6">
-        {/* Translated Title Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">تماس با ما</h1>
-          <p className="text-lg text-gray-600 mt-4">سوالی دارید یا می‌خواهید با ما همکاری کنید؟ پیامی برای ما بفرستید!</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+            تماس با ما
+          </h1>
+          <p className="text-lg text-gray-600 mt-4">
+            سوالی دارید یا می‌خواهید با ما همکاری کنید؟ پیامی برای ما بفرستید!
+          </p>
         </div>
 
-        {/* Added text-right for better RTL alignment */}
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg text-right">
           <form onSubmit={handleSubmit}>
-            {/* Translated Labels */}
             <div className="mb-6">
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">نام</label>
+              <label
+                htmlFor="name"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                نام
+              </label>
               <input
                 type="text"
                 id="name"
@@ -52,7 +56,12 @@ const Contact = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">ایمیل</label>
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                ایمیل
+              </label>
               <input
                 type="email"
                 id="email"
@@ -65,7 +74,12 @@ const Contact = () => {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="message" className="block text-gray-700 font-bold mb-2">پیام شما</label>
+              <label
+                htmlFor="message"
+                className="block text-gray-700 font-bold mb-2"
+              >
+                پیام شما
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -78,7 +92,6 @@ const Contact = () => {
             </div>
 
             <div className="text-center">
-              {/* Translated Button Text */}
               <button
                 type="submit"
                 className="bg-sky-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-600 transition-colors duration-300"
