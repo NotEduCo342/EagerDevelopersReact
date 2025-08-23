@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -17,10 +17,7 @@ const Navbar = () => {
     {
       title: 'پروژه‌ها',
       href: '/projects',
-      submenu: [
-        { title: 'پروژه ۱', href: '/projects/1' },
-        { title: 'پروژه ۲', href: '/projects/2' },
-      ],
+      // The submenu for this link has been removed
     },
     { title: 'تماس با ما', href: '/contact' },
     { title: 'ورود', href: '/login' },

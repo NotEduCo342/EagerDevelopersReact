@@ -2,7 +2,7 @@ export default function ProgrammingInfoTree() {
   return (
     <section
       id="programming-info-tree"
-      className="mt-16 font-[YEKAN] rounded-[40px] bg-gradient-to-tr from-[#8a2387] via-[#e94057] to-[#f27121] pb-4"
+      className="mt-16 font-kalameh rounded-[40px] bg-gradient-to-tr from-[#8a2387] via-[#e94057] to-[#f27121] pb-4"
     >
       <h3 className="relative top-5 mb-20 text-center  text-4xl font-medium text-white after:absolute after:left-1/2 after:bottom-[-5px] after:h-1 after:w-1/3 after:-translate-x-1/2 after:rounded-full after:bg-white">
         درخت برنامه نویسی
