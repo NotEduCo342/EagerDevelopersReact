@@ -36,13 +36,13 @@ const Hero = () => {
             </Swiper>
           </div>
           <div className="md:w-1/2 md:pl-12 text-center md:text-right">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight font-Hilda">
               پیشرفته‌تر از همیشه: کاوش در نوآوری‌های برنامه‌نویسی
             </h1>
-            <p className="mt-4 text-gray-600">
+            <p className="mt-4 text-gray-600 font-Pelak">
               ایگر دولوپر، محلی برای کشف ابزارهای پیشرفته، یادگیری تخصص‌های برنامه‌نویسی، و الهام گرفتن از داستان‌های موفقیت دولوپرها. با ما، آینده دیجیتال را خلق کنید.
             </p>
-            <div className="mt-8 flex justify-center md:justify-end gap-4">
+            <div className="mt-8 flex justify-center md:justify-end gap-4 font-Pelak">
               <button className="btn-animated-border px-8 py-3 bg-sky-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-400 focus-visible:ring-white">
                 اطلاعات بیشتر
               </button>

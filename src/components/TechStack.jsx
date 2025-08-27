@@ -69,11 +69,11 @@ const TechStack = () => {
     <section id="tech-stack" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-800">
+          <h2 className="text-4xl font-extrabold text-gray-800 font-Hilda">
             ابزارهای ضروری برای یادگیری و توسعه وب
           </h2>
           <div className="w-24 h-1 bg-sky-500 mx-auto mt-4 mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-Pelak">
             این‌ها تکنولوژی‌های اصلی هستند که بین تخیل و واقعیت پل می‌زنند و
             ایده‌های شما را به وب‌سایت‌های کاربردی تبدیل می‌کنند.
           </p>
@@ -89,7 +89,7 @@ const TechStack = () => {
           {techData.map((tech) => (
             <motion.div
               key={tech.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:scale-105 transition-all duration-300"
+              className="bg-white font-Pelak rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:scale-105 transition-all duration-300"
               variants={cardVariants}
             >
               <div

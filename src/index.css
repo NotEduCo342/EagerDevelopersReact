@@ -3,15 +3,25 @@ html {
 }
 
 @font-face {
-  font-family: "Kalameh";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/KALAMEH/Kalameh-Regular.woff2") format("truetype");
+  font-family: "Hilda";
+  src: url("/fonts/Hilda @fontraigannn.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Pelak";
+  src: url("/fonts/Pelak-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Yekan";
+  src: url("/fonts/YekanBakh-Regular.ttf") format("truetype");
 }
 
 @import "tailwindcss";
+.item-footer{
+  @apply relative text-[1.2rem] font-bold inline-block text-gray-200 hover:text-white transition-colors duration-300 before:block before:absolute before:-bottom-1 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full
+}
 
 @theme {
-  --font-kalameh: "Kalameh", "sans-serif";
+  --font-Hilda: "Hilda", "sans-serif";
+  --font-Pelak: "Pelak", "sans-serif";
+  --font-Yekan: "Yekan", "sans-serif";
 }

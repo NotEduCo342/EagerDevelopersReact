@@ -2,7 +2,7 @@ const IntroductionSection = () => {
   return (
     <section
       id="introduction-section"
-      className="py-10 px-5 text-[20px] text-black font-kalameh"
+      className="py-10 px-5  text-black font-kalameh font-Pelak"
     >
       <section className="flex flex-wrap justify-evenly items-center h-[32rem] mb-10">
         <div className="pic-left">
@@ -15,10 +15,10 @@ const IntroductionSection = () => {
 
         <div className="text-right ml-5 flex flex-col ">
           <div className="w-[50px] h-[50px] rounded-full bg-gradient-to-tr from-[#2f89fc] to-[#00fff0] flex items-center justify-center text-white mb-5">
-            <i className="zmdi zmdi-lamp text-2xl"></i>
+            <i class="bi bi-brightness-high-fill text-2xl"></i>
           </div>
-          <h3 className="bg-gradient-to-tr from-[#2f89fc] to-[#00fff0] bg-clip-text text-transparent text-center mb-5">
-            <span className="text-[#2f89fc]">توسعه وب نوین</span> <br />
+          <h3 className="bg-gradient-to-tr from-[#2f89fc] to-[#00fff0] bg-clip-text text-transparent text-center mb-5 text-[20px]">
+            <span className="text-[#2f89fc] ">توسعه وب نوین</span> <br />
             طراحی کاربرمحور تجربه‌ای متمایز در دنیای دیجیتال
           </h3>
           <p className=" text-[#666] w-[600px] leading-8 mb-5 ">
@@ -44,9 +44,9 @@ const IntroductionSection = () => {
 
         <div className="text-right mr-5 flex flex-col">
           <div className="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-[orangered] to-[orange] flex items-center justify-center text-white mb-5">
-            <i className="zmdi zmdi-folder text-2xl"></i>
+            <i className="bi bi-folder-fill text-2xl"></i>
           </div>
-          <h3 className="bg-gradient-to-r from-[orangered] to-[orange] bg-clip-text text-transparent text-center mb-5">
+          <h3 className="bg-gradient-to-r from-[orangered] to-[orange] bg-clip-text text-transparent text-center mb-5 text-[20px]">
             طراحی وب مبتنی بر تجربه <br />
             آینده وب با فناوری‌های مدرن و پیشرفته ساخته می‌شود
           </h3>

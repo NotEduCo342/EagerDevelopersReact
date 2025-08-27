@@ -1,112 +1,77 @@
-import { FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
-import React from "react";
+import {
+  FaInstagram,
+  FaTwitter,
+  FaGithub,
+  FaTelegramPlane,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-// تبدیل ارقام لاتین به فارسی
-const toPersianDigits = (val) =>
-  String(val).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
-
-const FooterColumn = ({ title, links, id }) => (
-  <nav aria-labelledby={id}>
-    <h3
-      id={id}
-      className="font-bold text-white mb-4 text-lg"
-    >
-      {title}
-    </h3>
-    <ul>
-      {links.map((link) => (
-        <li key={link.name} className="mb-2">
-          <a
-            href={link.href}
-            className="text-gray-200 hover:text-white hover:-translate-y-0.5 transition-all duration-300 block"
-          >
-            {link.name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
-);
-
-const defaultCompanyLinks = [
-  { name: "درباره ما", href: "/about" },
-  { name: "پروژه‌ها", href: "/projects" },
-  { name: "فرصت‌های شغلی", href: "/careers" },
-];
-
-const defaultResourceLinks = [
-  { name: "وبلاگ", href: "/blog" },
-  { name: "مرکز راهنما", href: "/help" },
-  { name: "تماس با ما", href: "/contact" },
-];
-
-const socialLinks = [
-  { name: "توییتر", href: "#", icon: FaTwitter },
-  { name: "اینستاگرام", href: "#", icon: FaInstagram },
-  { name: "گیت‌هاب", href: "#", icon: FaGithub },
-];
-
-const Footer = ({
-  companyLinks = defaultCompanyLinks,
-  resourceLinks = defaultResourceLinks,
-  brandName = "EAGER DEVELOPERS",
-  tagline = "نوآوری در وب؛ یک پروژه در هر بار.",
-  year = new Date().getFullYear(),
-  rtl = true,
-  locale = "fa",
-  showLatinYear = false,
-}) => {
-  const yearFa = toPersianDigits(year);
+const Footer = () => {
   return (
-    <footer
-      className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-t-3xl mt-20"
-      dir={rtl ? "rtl" : "ltr"}
-      lang={locale}
-    >
-      <div className="container mx-auto px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-2">
-              {brandName}
-            </h2>
-            <p className="text-gray-200">{tagline}</p>
+    <>
+      <footer className="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-t-3xl pt-20 pb-6 font-Yekan">
+        <div className="w-full flex flex-wrap justify-evenly items-start">
+          <div className="flex flex-col gap-5 h-full justify-center">
+            <h3 className="text-3xl font-bold text-center">شبکه های اجتماعی</h3>
+            <div className="flex justify-evenly  items-center gap-4">
+              <Link
+                to="#"
+                className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-md"
+                aria-label="Twitter"
+              >
+                <FaTwitter size={18} />
+              </Link>
+              <Link
+                to="#"
+                className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-md"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={18} />
+              </Link>
+              <Link
+                to="#"
+                className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-md"
+                aria-label="Github"
+              >
+                <FaGithub size={18} />
+              </Link>
+              <Link
+                to="#"
+                className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-md"
+                aria-label="Github"
+              >
+                <FaTelegramPlane size={18} />
+              </Link>
+            </div>
           </div>
-
-          <FooterColumn
-            title="شرکت"
-            links={companyLinks}
-            id="footer-company"
-          />
-          <FooterColumn
-            title="منابع"
-            links={resourceLinks}
-            id="footer-resources"
-          />
+          <div className="flex flex-col gap-5 h-full justify-center items-center">
+            <h3 className="text-3xl font-bold text-center">لینک های سریع</h3>
+            <Link className="item-footer">پروژه ها</Link>
+            <Link className="item-footer">درباره ما</Link>
+            <Link className="item-footer">ارتباط با ما</Link>
+            <Link className="item-footer">ورود یا ثبت نام</Link>
+          </div>
+          <div className="flex flex-col gap-5 h-full  items-center">
+            <h3 className="text-3xl font-bold text-center">راه های ارتباطی</h3>
+            <div className=" text-[1.2rem] font-bold inline-block">تماس: 1234567-028</div>
+            <div className=" text-[1.2rem] font-bold inline-block"> info@fastfood.com :ایمیل</div>
+            <div className=" text-[1.2rem] font-bold inline-block">
+              آدرس: قزوین , چهارراه ولیعصر , جهاد دانشگاهی
+            </div>
+          </div>
+          <div className="flex flex-col gap-5 h-full  items-center  w-[20%] text-center">
+            <h3 className="text-3xl font-bold text-center">Eager Developers</h3>
+            <span>
+              ترکیبی از خلاقیت و فناوری برای ساخت تجربه‌های دیجیتال ماندگار
+            </span>
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-300 text-sm">
-            {`© ${showLatinYear ? year : yearFa} ${brandName} - همه حقوق محفوظ است.`}
-          </p>
-          <ul className="flex items-center gap-6">
-            {socialLinks.map(({ name, href, icon: Icon }) => (
-              <li key={name}>
-                <a
-                  href={href}
-                  aria-label={name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 inline-flex"
-                >
-                  <Icon size={20} aria-hidden="true" focusable="false" />
-                  <span className="sr-only">{name}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div className="mt-10 border-t border-white/20 pt-3 text-center text-gray-200 text-sm font-Yekan">
+          © {new Date().getFullYear()} EAGER DEVELOPERS - همه حقوق محفوظ است
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

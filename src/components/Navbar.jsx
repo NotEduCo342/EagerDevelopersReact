@@ -24,7 +24,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-sky-500 shadow-md relative z-20">
+    <header className="bg-sky-500 shadow-md relative z-20 font-Pelak">
       <div className="container mx-auto flex items-center justify-between p-4 text-white">
         <Link to="/" className="text-2xl font-bold">
           EagerDevelopers
