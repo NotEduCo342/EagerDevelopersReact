@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       <footer className="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-t-3xl pt-20 pb-6 font-Yekan">
-        <div className="w-full flex flex-wrap justify-evenly items-start">
+        <div className="w-full flex flex-wrap max-[735px]:flex-col max-[735px]:items-center justify-evenly items-start gap-10">
           <div className="flex flex-col gap-5 h-full justify-center">
             <h3 className="text-3xl font-bold text-center">شبکه های اجتماعی</h3>
             <div className="flex justify-evenly  items-center gap-4">
@@ -55,12 +55,12 @@ const Footer = () => {
             <h3 className="text-3xl font-bold text-center">راه های ارتباطی</h3>
             <div className=" text-[1.2rem] font-bold inline-block">تماس: 1234567-028</div>
             <div className=" text-[1.2rem] font-bold inline-block"> info@fastfood.com :ایمیل</div>
-            <div className=" text-[1.2rem] font-bold inline-block">
+            <div className=" text-[1.2rem] font-bold inline-block text-center">
               آدرس: قزوین , چهارراه ولیعصر , جهاد دانشگاهی
             </div>
           </div>
-          <div className="flex flex-col gap-5 h-full  items-center  w-[20%] text-center">
-            <h3 className="text-3xl font-bold text-center">Eager Developers</h3>
+          <div className="flex flex-col gap-5 h-full  items-center  w-auto text-center">
+            <h3 className="text-3xl font-bold text-center max-[425px]:whitespace-nowrap">Eager Developers</h3>
             <span>
               ترکیبی از خلاقیت و فناوری برای ساخت تجربه‌های دیجیتال ماندگار
             </span>
