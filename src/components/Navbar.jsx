@@ -1,26 +1,25 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     {
-      title: 'خانه',
-      href: '/',
-      submenu: [
-        { title: 'درباره ما', href: '/about' },
-        { title: 'ویژگی‌ها', href: '/features' },
-      ],
+      title: "خانه",
+      href: "/",
+      // submenu: [
+      //   { title: 'درباره ما', href: '/about' },
+      //   { title: 'ویژگی‌ها', href: '/features' },
+      // ],
     },
     {
-      title: 'پروژه‌ها',
-      href: '/projects',
-      // The submenu for this link has been removed
+      title: "پروژه‌ها",
+      href: "/projects",
     },
-    { title: 'تماس با ما', href: '/contact' },
-    { title: 'ورود', href: '/login' },
+    { title: "تماس با ما", href: "/contact" },
+    { title: "ورود", href: "/login" },
   ];
 
   return (
@@ -72,11 +71,18 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className={`absolute w-full bg-sky-500 md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+      <div
+        className={`absolute w-full bg-sky-500 md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
         <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navLinks.map((link) => (
             <li key={link.title}>
-              <Link to={link.href} className="block text-white rounded-md px-3 py-2 text-base font-medium hover:bg-sky-600">
+              <Link
+                to={link.href}
+                className="block text-white rounded-md px-3 py-2 text-base font-medium hover:bg-sky-600"
+              >
                 {link.title}
               </Link>
             </li>

@@ -1,14 +1,58 @@
-import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 
 const ProjectCard = ({ project }) => {
+  const [hovered, setHovered] = useState(false);
+  const videoRef = useRef(null);
+  let hoverTimeout;
+
+  const handleMouseEnter = () => {
+    hoverTimeout = setTimeout(() => {
+      setHovered(true);
+      videoRef.current?.play();
+    }, 1000);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout);
+    setHovered(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
-    <Link to={`/projects/${project.id}`} className="block">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 h-full">
-        <img
-          className="w-full h-48 object-cover"
-          src={project.imageUrl}
-          alt={project.title}
-        />
+       // <Link to={`/projects/${project.id}`} className="block">
+    <a href={project.addres} target="_blank" rel="noopener noreferrer">
+      <div
+        className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 h-full font-Pelak relative"
+        dir="rtl"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+   
+        {!hovered && (
+          <img
+            className="w-full h-57 object-cover"
+            src={project.imageUrl}
+            alt={project.title}
+          />
+        )}
+
+     
+<video
+  ref={videoRef}
+  className={`w-full  rounded-t-lg  ${
+    hovered ? "block" : "hidden"
+  }`}
+  src={project.video}
+  muted
+  loop
+  playsInline
+/>
+
+
+      
         <div className="p-6">
           <h3 className="text-xl font-bold text-gray-800 mb-2">
             {project.title}
@@ -18,7 +62,7 @@ const ProjectCard = ({ project }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="bg-sky-100 text-sky-800 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                className="bg-sky-100 text-sky-800 text-xs px-2.5 py-0.5 rounded-full"
               >
                 {tag}
               </span>
@@ -26,7 +70,7 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 

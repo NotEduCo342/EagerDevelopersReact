@@ -14,7 +14,7 @@ const techData = [
     ),
     title: "HTML5 & CSS3",
     description:
-      "زبان‌های بنیادی برای ایجاد و استایل‌دهی صفحات وب زیبا و ساختاریافته.",
+      "زبان‌های بنیادی برای ایجاد و استایل‌دهی صفحات وب زیبا و ساختاریافته",
     gradient: "from-orange-400 to-red-500",
   },
   {
@@ -22,7 +22,7 @@ const techData = [
     icon: <FaJsSquare size={50} className="text-yellow-400 drop-shadow-lg" />,
     title: "JavaScript",
     description:
-      "زبان وب که تعامل و قابلیت‌های پویا را به سایت‌های شما می‌آورد.",
+      "زبان وب که تعامل و قابلیت‌های پویا را به سایت‌های شما می‌آورد",
     gradient: "from-yellow-300 to-orange-400",
   },
   {
@@ -30,7 +30,7 @@ const techData = [
     icon: <FaReact size={50} className="text-cyan-400 drop-shadow-lg" />,
     title: "React",
     description:
-      "یک کتابخانه قدرتمند جاوااسکریپت برای ساخت رابط‌های کاربری پیچیده، سریع و مقیاس‌پذیر.",
+      "یک کتابخانه قدرتمند جاوااسکریپت برای ساخت رابط‌های کاربری پیچیده، سریع و مقیاس‌پذیر",
     gradient: "from-cyan-400 to-blue-500",
   },
   {
@@ -38,7 +38,7 @@ const techData = [
     icon: <SiNextdotjs size={50} className="text-white drop-shadow-lg" />,
     title: "Next.js",
     description:
-      "فریم‌وُرک ری‌اکت برای محیط پروداکشن که رندر سمت سرور و تولید سایت استاتیک را ممکن می‌سازد.",
+      "فریم‌وُرک ری‌اکت برای محیط پروداکشن که رندر سمت سرور و تولید سایت استاتیک را ممکن می‌سازد",
     gradient: "from-gray-700 to-black",
   },
 ];

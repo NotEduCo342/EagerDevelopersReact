@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import TechStack from "../components/TechStack";
 import ProgrammingInfoTree from "../components/ProgrammingInfoTree";
 import IntroductionSection from "../components/IntroductionSection";
-
+import Footer from "../components/Footer";
 const Home = () => {
   const pageTitle = "طراحی وب با خانم بهبودی - مدرس و توسعه دهنده وب در قزوین";
   const pageDescription =
@@ -37,6 +37,7 @@ const Home = () => {
       <TechStack />
       <ProgrammingInfoTree />
       <IntroductionSection />
+       <Footer />
     </>
   );
 };

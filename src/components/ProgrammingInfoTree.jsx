@@ -1,5 +1,5 @@
 const ProgrammingInfoTree = () => {
- return (
+  return (
     <section
       id="programming-info-tree"
       className="mt-16 font-kalameh rounded-[40px] bg-gradient-to-tr from-[#8a2387] via-[#e94057] to-[#f27121] pb-4"
@@ -18,7 +18,9 @@ const ProgrammingInfoTree = () => {
           >
             <i className="absolute right-[-60px] top-4 hidden lg:flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-[17px] text-red-400 shadow-[0_0_0_4px_#fff,0_3px_0_4px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(0,0,0,0.08)] icon" />
             <div className="flex items-center justify-between">
-              <span className="text-[22px] font-semibold">ساختار الگوریتمی</span>
+              <span className="text-[22px] font-semibold">
+                ساختار الگوریتمی
+              </span>
             </div>
             <p className="my-2.5">
               رنامه نویسی ابزار پیشرفت است که مهارت تحلیل دادهها و طراحی
@@ -43,7 +45,9 @@ const ProgrammingInfoTree = () => {
           >
             <i className="absolute left-[-60px] top-4 hidden lg:flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-[17px] text-red-400 shadow-[0_0_0_4px_#fff,0_3px_0_4px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(0,0,0,0.08)] icon" />
             <div className="flex items-center justify-between">
-              <span className="text-[22px] font-semibold">طراحی واسط کاربری</span>
+              <span className="text-[22px] font-semibold">
+                طراحی واسط کاربری
+              </span>
             </div>
             <p className="my-2.5">
               ی واسط کاربری نقش اساسی ایفا می کند که به کارگیری مفهوم گرافیک
@@ -68,7 +72,9 @@ const ProgrammingInfoTree = () => {
           >
             <i className="absolute right-[-60px] top-4 hidden lg:flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-[17px] text-red-400 shadow-[0_0_0_4px_#fff,0_3px_0_4px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(0,0,0,0.08)] icon" />
             <div className="flex items-center justify-between">
-              <span className="text-[22px] font-semibold">بهینه سازی عملکرد</span>
+              <span className="text-[22px] font-semibold">
+                بهینه سازی عملکرد
+              </span>
             </div>
             <p className="my-2.5">
               بهینه سازی عملکرد کدها موجبات افزایش کارایی سیستم را فراهم می کند
@@ -93,7 +99,9 @@ const ProgrammingInfoTree = () => {
           >
             <i className="absolute left-[-60px] top-4 hidden lg:flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-[17px] text-red-400 shadow-[0_0_0_4px_#fff,0_3px_0_4px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(0,0,0,0.08)] icon" />
             <div className="flex items-center justify-between">
-              <span className="text-[22px] font-semibold">امنیت نرم افزاری</span>
+              <span className="text-[22px] font-semibold">
+                امنیت نرم افزاری
+              </span>
             </div>
             <p className="my-2.5">
               امنیت نرم افزاری اعتماد کاربران در سیستم های محسوب می شود با پیاده
@@ -118,12 +126,12 @@ const ProgrammingInfoTree = () => {
           >
             <i className="absolute right-[-60px] top-5 hidden lg:flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-[17px] text-red-400 shadow-[0_0_0_4px_#fff,0_3px_0_4px_rgba(0,0,0,0.05),inset_0_2px_0_rgba(0,0,0,0.08)] icon" />
             <div className="flex items-center justify-between">
-              <span className="text-[22px] font-semibold">بهینه سازی عملکرد</span>
+              <span className="text-[22px] font-semibold">نوآوری در توسعه</span>
             </div>
             <p className="my-2.5">
-              بهینه سازی عملکرد کدها موجبات افزایش کارایی سیستم را فراهم می کند
-              با اجرای الگوریتمهای روزآمد کاهش زمان پاسخگویی و افزایش بهره مندی
-              کاربران در پروژه های نرم افزاری تضمین می گردد
+              نوآوری در توسعه سرآغاز تحولات بنیادی در روشهای برنامه نویسی محسوب
+              می شود با به کارگیری ایده های نو و تکنیک های مدرن تولید نرم افزار
+              مسیر موفقیت را هموار می کند
             </p>
             <div className="flex items-center justify-between">
               <a
@@ -138,7 +146,6 @@ const ProgrammingInfoTree = () => {
       </div>
     </section>
   );
-}
- 
-export default ProgrammingInfoTree;
+};
 
+export default ProgrammingInfoTree;
