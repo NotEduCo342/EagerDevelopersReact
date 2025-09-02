@@ -46,10 +46,10 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-5 h-full justify-center items-center">
             <h3 className="text-3xl font-bold text-center">لینک های سریع</h3>
-            <Link className="item-footer">پروژه ها</Link>
-            <Link className="item-footer">درباره ما</Link>
-            <Link className="item-footer">ارتباط با ما</Link>
-            <Link className="item-footer">ورود یا ثبت نام</Link>
+            <Link to="/projects" className="item-footer">پروژه ها</Link>
+            <Link to="/" className="item-footer">درباره ما</Link>
+            <Link to="/contact" className="item-footer">ارتباط با ما</Link>
+            <Link to="/login" className="item-footer">ورود یا ثبت نام</Link>
           </div>
           <div className="flex flex-col gap-5 h-full  items-center">
             <h3 className="text-3xl font-bold text-center">راه های ارتباطی</h3>
