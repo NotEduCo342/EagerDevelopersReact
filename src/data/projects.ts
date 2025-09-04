@@ -1,4 +1,6 @@
-export const projectData = [
+import type { Project } from '@/types';
+
+export const projectData: Project[] = [
   {
     id: "eagerdevelopers-website",
     addres: "https://my-filimo.vercel.app/",

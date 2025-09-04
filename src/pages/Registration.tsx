@@ -1,7 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
+import type { RegistrationFormValues } from '@/types';
 
 const RegistrationSchema = Yup.object().shape({
   username: Yup.string().required("وارد کردن نام کاربری الزامی است"),
@@ -12,12 +14,12 @@ const RegistrationSchema = Yup.object().shape({
     .min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد")
     .required("وارد کردن رمز عبور الزامی است"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "رمزهای عبور باید مطابقت داشته باشند")
+    .oneOf([Yup.ref("password")], "رمزهای عبور باید مطابقت داشته باشند")
     .required("تکرار رمز عبور الزامی است"),
 });
 
-const Registration = () => {
-  const handleRegister = (values, { setSubmitting }) => {
+const Registration: React.FC = () => {
+  const handleRegister = (values: RegistrationFormValues, { setSubmitting }: FormikHelpers<RegistrationFormValues>): void => {
     console.log("Registration form submitted with:", values);
     alert("Registration form submitted! Check the console for data.");
     setSubmitting(false);

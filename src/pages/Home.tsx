@@ -1,14 +1,16 @@
+import React from "react";
 import Hero from "../components/Hero";
 import TechStack from "../components/TechStack";
 import ProgrammingInfoTree from "../components/ProgrammingInfoTree";
 import IntroductionSection from "../components/IntroductionSection";
 import Footer from "../components/Footer";
-const Home = () => {
+import { config } from '@/config';
+
+const Home: React.FC = () => {
   const pageTitle = "طراحی وب با خانم بهبودی - مدرس و توسعه دهنده وب در قزوین";
-  const pageDescription =
-    "به وب‌سایت رسمی خانم بهبودی، مدرس و متخصص طراحی و توسعه وب در قزوین خوش آمدید. در این وب‌سایت با جدیدترین تکنولوژی‌های برنامه‌نویسی آشنا شوید.";
-  const canonicalUrl = "https://www.eagerdevelopers.ir";
-  const ogImageUrl = `${canonicalUrl}/images/og-image.jpg`;
+  const pageDescription = config.seo.description;
+  const canonicalUrl = config.app.canonicalUrl;
+  const ogImageUrl = config.seo.ogImage;
 
   return (
     <>
@@ -16,9 +18,9 @@ const Home = () => {
       <meta name="description" content={pageDescription} />
       <meta
         name="keywords"
-        content="طراحی وب, توسعه وب, خانم بهبودی, آموزش برنامه‌نویسی, قزوین, React, HTML, CSS, JavaScript"
+        content={config.seo.keywords}
       />
-      <meta name="author" content="EagerDevelopers" />
+      <meta name="author" content={config.seo.author} />
       <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:type" content="website" />
@@ -27,7 +29,7 @@ const Home = () => {
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={ogImageUrl} />
 
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:card" content={config.seo.twitterCard} />
       <meta property="twitter:url" content={canonicalUrl} />
       <meta property="twitter:title" content={pageTitle} />
       <meta property="twitter:description" content={pageDescription} />

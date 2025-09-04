@@ -1,13 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import type { ContactFormValues, ChangeHandler, SubmitHandler } from '@/types';
+import { config } from '@/config';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<ContactFormValues>({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange: ChangeHandler = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -15,11 +17,11 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit: SubmitHandler = (e) => {
     e.preventDefault();
     console.log("Form data submitted:", formData);
 
-    alert("از پیام شما متشکریم! برای مشاهده داده‌ها، کنسول را بررسی کنید.");
+    alert(config.forms.successMessage);
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -28,10 +30,10 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
-            تماس با ما
+            {config.contact.title}
           </h1>
           <p className="text-lg text-gray-600 mt-4">
-            سوالی دارید یا می‌خواهید با ما همکاری کنید؟ پیامی برای ما بفرستید!
+            {config.contact.subtitle}
           </p>
         </div>
 
@@ -40,17 +42,18 @@ const Contact = () => {
             <div className="mb-6">
               <label
                 htmlFor="name"
-                className="block text-gray-700 font-bold mb-2"
+                className={config.forms.classes.label}
               >
-                نام
+                {config.forms.fields.name.label}
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
+                placeholder={config.forms.fields.name.placeholder}
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className={config.forms.classes.input}
                 required
               />
             </div>
@@ -58,17 +61,18 @@ const Contact = () => {
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block text-gray-700 font-bold mb-2"
+                className={config.forms.classes.label}
               >
-                ایمیل
+                {config.forms.fields.email.label}
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                placeholder={config.forms.fields.email.placeholder}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className={config.forms.classes.input}
                 required
               />
             </div>
@@ -76,17 +80,18 @@ const Contact = () => {
             <div className="mb-6">
               <label
                 htmlFor="message"
-                className="block text-gray-700 font-bold mb-2"
+                className={config.forms.classes.label}
               >
-                پیام شما
+                {config.forms.fields.message.label}
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows="5"
+                rows={5}
+                placeholder={config.forms.fields.message.placeholder}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className={config.forms.classes.textarea}
                 required
               ></textarea>
             </div>
@@ -94,9 +99,9 @@ const Contact = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-sky-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-600 transition-colors duration-300"
+                className={config.forms.classes.button}
               >
-                ارسال پیام
+                {config.forms.submitText}
               </button>
             </div>
           </form>

@@ -1,12 +1,31 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { projectData } from "../data/projects";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import type { Project } from '@/types';
 
-const ProjectDetail = () => {
-  const { projectId } = useParams();
-  const project = projectData.find((p) => p.id === projectId);
+interface ProjectDetailParams extends Record<string, string | undefined> {
+  projectId: string;
+}
+
+const ProjectDetail: React.FC = () => {
+  const { projectId } = useParams<ProjectDetailParams>();
+  const project: Project | undefined = projectData.find((p: Project) => p.id === projectId);
 
   if (!project) {
+    return (
+      <div className="bg-white pt-24 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">پروژه یافت نشد</h1>
+          <Link
+            to="/projects"
+            className="text-sky-600 hover:text-sky-800 font-semibold transition-colors"
+          >
+            بازگشت به همه‌ی پروژه‌ها
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -38,7 +57,7 @@ const ProjectDetail = () => {
             </div>
 
             <div className="max-w-none text-gray-700 space-y-4 text-lg">
-              <p>{project.longDescription}</p>
+              <p>{project.description}</p>
             </div>
 
             <div className="mt-12">

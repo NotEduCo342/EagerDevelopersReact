@@ -1,7 +1,12 @@
+import React from "react";
 import { FaArrowUp } from "react-icons/fa";
 
-const ScrollToTopButton = ({ isVisible }) => {
-  const scrollToTop = () => {
+interface ScrollToTopButtonProps {
+  isVisible: boolean;
+}
+
+const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ isVisible }) => {
+  const scrollToTop = (): void => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",

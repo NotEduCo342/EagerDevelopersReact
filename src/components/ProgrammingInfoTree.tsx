@@ -1,4 +1,5 @@
-const ProgrammingInfoTree = () => {
+import React from "react";
+const ProgrammingInfoTree: React.FC = () => {
   return (
     <section
       id="programming-info-tree"

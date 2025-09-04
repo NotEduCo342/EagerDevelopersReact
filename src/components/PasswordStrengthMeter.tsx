@@ -1,8 +1,8 @@
-import { useMemo } from "react";
-
+import React, { useMemo } from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import type { PasswordStrengthMeterProps, PasswordCriterion } from '@/types';
 
-const passwordCriteria = [
+const passwordCriteria: PasswordCriterion[] = [
   { id: 1, text: "حداقل ۸ کاراکتر", regex: /.{8,}/ },
   { id: 2, text: "یک حرف بزرگ (A-Z)", regex: /[A-Z]/ },
   { id: 3, text: "یک حرف کوچک (a-z)", regex: /[a-z]/ },
@@ -10,7 +10,7 @@ const passwordCriteria = [
   { id: 5, text: "یک کاراکتر خاص (!@#$...)", regex: /[^A-Za-z0-9]/ },
 ];
 
-const PasswordStrengthMeter = ({ password }) => {
+const PasswordStrengthMeter: React.FC<PasswordStrengthMeterProps> = ({ password }) => {
   const strength = useMemo(() => {
     let score = 0;
     passwordCriteria.forEach((criterion) => {
@@ -21,7 +21,7 @@ const PasswordStrengthMeter = ({ password }) => {
     return score;
   }, [password]);
 
-  const getBarProperties = () => {
+  const getBarProperties = (): { width: string; color: string } => {
     switch (strength) {
       case 1:
         return { width: "20%", color: "bg-red-500" };

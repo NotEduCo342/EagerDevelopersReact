@@ -1,18 +1,19 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
+import type { ProjectCardProps } from '@/types';
 
-const ProjectCard = ({ project }) => {
-  const [hovered, setHovered] = useState(false);
-  const videoRef = useRef(null);
-  let hoverTimeout;
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [hovered, setHovered] = useState<boolean>(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  let hoverTimeout: NodeJS.Timeout;
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (): void => {
     hoverTimeout = setTimeout(() => {
       setHovered(true);
       videoRef.current?.play();
     }, 1000);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (): void => {
     clearTimeout(hoverTimeout);
     setHovered(false);
     if (videoRef.current) {

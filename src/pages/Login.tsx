@@ -1,8 +1,9 @@
-import  { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import type { LoginFormValues } from '@/types';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -11,10 +12,10 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string().required("وارد کردن رمز عبور الزامی است"),
 });
 
-const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+const Login: React.FC = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const handleLogin = (values, { setSubmitting }) => {
+  const handleLogin = (values: LoginFormValues, { setSubmitting }: FormikHelpers<LoginFormValues>): void => {
     console.log("Login form submitted with:", values);
     alert("Login form submitted! Check the console for data.");
     setSubmitting(false);

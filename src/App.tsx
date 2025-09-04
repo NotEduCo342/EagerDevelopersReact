@@ -1,4 +1,4 @@
-import  { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
@@ -15,7 +15,7 @@ const Registration = lazy(() => import('./pages/Registration'));
 function App() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
+  const toggleVisibility = (): void => {
     if (window.scrollY > 300) {
       setIsVisible(true);
     } else {

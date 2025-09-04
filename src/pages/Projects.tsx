@@ -2,7 +2,7 @@ import ProjectCard from "../components/ProjectCard";
 
 import { projectData } from "../data/projects";
 
-const Projects = () => {
+const Projects: React.FC = () => {
   return (
     <div className="bg-gray-50 py-20">
       <div className="container mx-auto px-6">

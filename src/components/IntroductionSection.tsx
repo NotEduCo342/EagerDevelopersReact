@@ -1,4 +1,4 @@
-const IntroductionSection = () => {
+const IntroductionSection: React.FC = () => {
   return (
     <section
       id="introduction-section"

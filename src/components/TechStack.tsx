@@ -1,9 +1,10 @@
-motion;
+import React from "react";
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
+import type { TechItem, AnimationVariants } from '@/types';
 
-const techData = [
+const techData: TechItem[] = [
   {
     id: 1,
     icon: (
@@ -43,7 +44,7 @@ const techData = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: AnimationVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -53,7 +54,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: AnimationVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -64,7 +65,7 @@ const cardVariants = {
   },
 };
 
-const TechStack = () => {
+const TechStack: React.FC = () => {
   return (
     <section id="tech-stack" className="py-20">
       <div className="container mx-auto px-6">
