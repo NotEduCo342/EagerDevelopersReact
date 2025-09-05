@@ -48,6 +48,7 @@ export const SOCIAL_LINKS = [
 export const NAV_LINKS = [
   { name: 'خانه', href: '/' },
   { name: 'پروژه‌ها', href: '/projects' },
+  { name: 'بلاگ', href: '/blog' },
   { name: 'تماس با ما', href: '/contact' },
   { name: 'ورود', href: '/login' },
   { name: 'ثبت نام', href: '/register' },
@@ -107,4 +108,38 @@ export const SEO_CONFIG = {
   description: 'به وب‌سایت رسمی خانم بهبودی، مدرس و متخصص طراحی و توسعه وب در قزوین خوش آمدید. در این وب‌سایت با جدیدترین تکنولوژی‌های برنامه‌نویسی آشنا شوید.',
   ogImage: 'https://www.eagerdevelopers.ir/images/og-image.jpg',
   twitterCard: 'summary_large_image',
+} as const;
+
+// Error Boundary Configuration
+export const ERROR_BOUNDARY_CONFIG = {
+  // Error display settings
+  display: {
+    showErrorDetails: false, // Will be overridden by environment in development
+    showErrorId: true,
+    showStackTrace: false, // Will be overridden by environment in development
+    autoRetryDelay: 5000, // milliseconds
+    maxRetries: 3,
+  },
+  // Error message templates in Persian
+  messages: {
+    generic: 'خطایی رخ داده است!',
+    network: 'مشکل در اتصال به شبکه',
+    loading: 'خطا در بارگیری اطلاعات',
+    render: 'خطا در نمایش محتوا',
+    navigation: 'خطا در ناوبری',
+    form: 'خطا در پردازش فرم',
+  },
+  // Support information
+  support: {
+    email: 'support@eagerdevelopers.ir',
+    message: 'اگر این مشکل ادامه داشت، لطفاً با تیم پشتیبانی تماس بگیرید',
+  },
+  // Logging configuration
+  logging: {
+    enableConsoleLogging: true, // Will be overridden by environment
+    enableRemoteLogging: false, // Will be overridden by environment
+    logLevel: 'error', // 'debug', 'info', 'warn', 'error'
+    includeUserContext: true,
+    includePerformanceMetrics: false,
+  },
 } as const;

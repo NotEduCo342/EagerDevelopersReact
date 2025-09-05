@@ -1,13 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const MainLayout: React.FC = () => {
   return (
     <>
-      <Navbar />
+      <ErrorBoundary isolate={true}>
+        <Navbar />
+      </ErrorBoundary>
       <main className="flex-grow">
-        <Outlet />
+        <ErrorBoundary isolate={true}>
+          <Outlet />
+        </ErrorBoundary>
       </main>
      
     </>

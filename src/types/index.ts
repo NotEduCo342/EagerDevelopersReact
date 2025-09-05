@@ -201,3 +201,46 @@ export interface ProgrammingInfo {
   color: string;
   position: 'left' | 'right';
 }
+
+// Error Boundary types
+export interface ErrorBoundaryState {
+  hasError: boolean;
+  error: Error | null;
+  errorInfo: React.ErrorInfo | null;
+  errorId: string | null;
+}
+
+export interface ErrorBoundaryProps {
+  children: React.ReactNode;
+  fallback?: React.ComponentType<ErrorFallbackProps>;
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void;
+  isolate?: boolean; // Whether this boundary should isolate errors
+}
+
+export interface ErrorFallbackProps {
+  error: Error;
+  errorInfo: React.ErrorInfo;
+  resetError: () => void;
+  errorId: string;
+}
+
+// Error logging types
+export type ErrorSeverity = 'low' | 'medium' | 'high' | 'critical';
+
+export interface ErrorLogEntry {
+  id: string;
+  message: string;
+  stack?: string;
+  severity: ErrorSeverity;
+  timestamp: Date;
+  userAgent: string;
+  url: string;
+  userId?: string;
+  sessionId?: string;
+  additionalInfo?: Record<string, unknown>;
+}
+
+export interface ErrorLogger {
+  logError: (error: Error, severity: ErrorSeverity, additionalInfo?: Record<string, unknown>) => string;
+  logErrorBoundary: (error: Error, errorInfo: React.ErrorInfo, severity?: ErrorSeverity) => string;
+}
