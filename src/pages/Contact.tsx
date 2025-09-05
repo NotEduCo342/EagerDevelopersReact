@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { FaUser, FaEnvelope, FaComment, FaPaperPlane, FaPhone, FaMapMarkerAlt, FaClock, FaInstagram, FaTelegram, FaGithub } from "react-icons/fa";
-import Footer from "../components/Footer";
+import SimpleFooter from "../components/SimpleFooter";
 import type { ContactFormValues, ChangeHandler, SubmitHandler } from '@/types';
 import { config } from '@/config';
 
@@ -354,9 +354,9 @@ const Contact: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Footer */}
+      {/* Simple Footer */}
       <div dir="ltr">
-        <Footer />
+        <SimpleFooter />
       </div>
     </div>
   );

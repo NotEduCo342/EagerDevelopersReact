@@ -9,7 +9,7 @@ import {
   FaTwitter,
   FaTelegramPlane
 } from "react-icons/fa";
-import Footer from "../components/Footer";
+import SimpleFooter from "../components/SimpleFooter";
 
 // Mock data for a single blog post
 const mockBlogPost = {
@@ -62,10 +62,10 @@ useEffect(() => {
       <p>طراحی رابط کاربری مدرن با React نیازمند درک عمیق از اصول طراحی، architecture های مدرن و ابزارهای مناسب است. با رعایت best practice ها و استفاده از ابزارهای مناسب، می‌توانید رابط‌های کاربری زیبا و کارآمدی بسازید.</p>
     </div>
   `,
-  featuredImage: "/public/images/slider/slider (1).webp",
+  featuredImage: "/images/slider/slider (1).webp",
   author: {
     name: "خانم بهبودی",
-    avatar: "/public/EagerFav.png",
+    avatar: "/EagerFav.png",
     bio: "مدرس و توسعه‌دهنده وب با بیش از 5 سال تجربه در طراحی و توسعه وبسایت‌های مدرن"
   },
   category: "آموزش React",
@@ -80,13 +80,13 @@ const relatedPosts = [
     id: "2",
     title: "بهترین پرکتیس‌های TypeScript برای پروژه‌های بزرگ",
     slug: "typescript-best-practices",
-    featuredImage: "/public/images/slider/slider (2).webp"
+    featuredImage: "/images/slider/slider (2).webp"
   },
   {
     id: "3", 
     title: "انیمیشن‌های وب با Framer Motion: از مبتدی تا پیشرفته",
     slug: "framer-motion-animations",
-    featuredImage: "/public/images/slider/slider (3).webp"
+    featuredImage: "/images/slider/slider (3).webp"
   }
 ];
 
@@ -292,9 +292,9 @@ const BlogPost: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Footer */}
+        {/* Simple Footer */}
         <div dir="ltr">
-          <Footer />
+          <SimpleFooter />
         </div>
       </div>
     </div>

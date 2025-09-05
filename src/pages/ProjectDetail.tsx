@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { projectData } from "../data/projects";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import SimpleFooter from "../components/SimpleFooter";
 import type { Project } from '@/types';
 
 interface ProjectDetailParams extends Record<string, string | undefined> {
@@ -14,17 +15,20 @@ const ProjectDetail: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="bg-white pt-24 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">پروژه یافت نشد</h1>
-          <Link
-            to="/projects"
-            className="text-sky-600 hover:text-sky-800 font-semibold transition-colors"
-          >
-            بازگشت به همه‌ی پروژه‌ها
-          </Link>
+      <>
+        <div className="bg-white pt-24 min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">پروژه یافت نشد</h1>
+            <Link
+              to="/projects"
+              className="text-sky-600 hover:text-sky-800 font-semibold transition-colors"
+            >
+              بازگشت به همه‌ی پروژه‌ها
+            </Link>
+          </div>
         </div>
-      </div>
+        <SimpleFooter />
+      </>
     );
   }
 
@@ -103,6 +107,7 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <SimpleFooter />
     </div>
   );
 };

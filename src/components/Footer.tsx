@@ -18,10 +18,10 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-t-3xl pt-20 pb-6 font-Yekan">
-        <div className="w-full flex flex-wrap max-[735px]:flex-col max-[735px]:items-center justify-evenly items-start gap-10">
-          <div className="flex flex-col gap-5 h-full justify-center">
-            <h3 className="text-3xl font-bold text-center">شبکه های اجتماعی</h3>
+      <footer className="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-t-3xl pt-16 pb-6 font-Yekan">
+        <div className="w-full flex flex-wrap max-[735px]:flex-col max-[735px]:items-center justify-evenly items-start gap-8">
+          <div className="flex flex-col gap-4 h-full justify-center">
+            <h3 className="text-2xl font-bold text-center">شبکه های اجتماعی</h3>
             <div className="flex justify-evenly items-center gap-4">
               {config.social.map((socialLink) => (
                 <a
@@ -37,24 +37,30 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-5 h-full justify-center items-center">
-            <h3 className="text-3xl font-bold text-center">لینک های سریع</h3>
-            {config.navigation.map((link) => (
-              <Link key={link.name} to={link.href} className="item-footer">
-                {link.name}
-              </Link>
-            ))}
+          <div className="flex flex-col gap-4 h-full justify-center items-center">
+            <h3 className="text-2xl font-bold text-center">لینک های سریع</h3>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-xs">
+              {config.navigation.map((link) => (
+                <Link 
+                  key={link.name} 
+                  to={link.href} 
+                  className="text-white hover:text-blue-200 transition-colors duration-200 text-sm font-medium text-center"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-col gap-5 h-full items-center">
-            <h3 className="text-3xl font-bold text-center">راه های ارتباطی</h3>
-            <div className="text-[1.2rem] font-bold inline-block">تماس: {config.contact.phone}</div>
-            <div className="text-[1.2rem] font-bold inline-block">{config.contact.email} :ایمیل</div>
-            <div className="text-[1.2rem] font-bold inline-block text-center">
+          <div className="flex flex-col gap-4 h-full items-center">
+            <h3 className="text-2xl font-bold text-center">راه های ارتباطی</h3>
+            <div className="text-base font-medium inline-block">تماس: {config.contact.phone}</div>
+            <div className="text-base font-medium inline-block">{config.contact.email} :ایمیل</div>
+            <div className="text-base font-medium inline-block text-center">
               آدرس: {config.contact.address}
             </div>
           </div>
-          <div className="flex flex-col gap-5 h-full  items-center  w-auto text-center">
-            <h3 className="text-3xl font-bold text-center max-[425px]:whitespace-nowrap">Eager Developers</h3>
+          <div className="flex flex-col gap-4 h-full  items-center  w-auto text-center">
+            <h3 className="text-2xl font-bold text-center max-[425px]:whitespace-nowrap">Eager Developers</h3>
             <span>
               ترکیبی از خلاقیت و فناوری برای ساخت تجربه‌های دیجیتال ماندگار
             </span>

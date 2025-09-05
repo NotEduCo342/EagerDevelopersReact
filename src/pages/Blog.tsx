@@ -7,7 +7,7 @@ import {
   FaClock, 
   FaArrowLeft 
 } from "react-icons/fa";
-import Footer from "../components/Footer";
+import SimpleFooter from "../components/SimpleFooter";
 
 // Mock data for demonstration
 const mockBlogPosts = [
@@ -16,10 +16,10 @@ const mockBlogPosts = [
     title: "راهنمای کامل طراحی رابط کاربری مدرن با React",
     slug: "modern-react-ui-guide",
     excerpt: "در این مقاله با جدیدترین تکنیک‌های طراحی رابط کاربری با React و Tailwind CSS آشنا می‌شوید.",
-    featuredImage: "/public/images/slider/slider (1).webp",
+    featuredImage: "/images/slider/slider (1).webp",
     author: {
       name: "خانم بهبودی",
-      avatar: "/public/EagerFav.png"
+      avatar: "/EagerFav.png"
     },
     category: "آموزش React",
     tags: ["React", "UI/UX", "Tailwind"],
@@ -32,10 +32,10 @@ const mockBlogPosts = [
     title: "بهترین پرکتیس‌های TypeScript برای پروژه‌های بزرگ",
     slug: "typescript-best-practices",
     excerpt: "تکنیک‌های پیشرفته TypeScript که کیفیت کد شما را بهبود می‌دهد و خطاها را کاهش می‌دهد.",
-    featuredImage: "/public/images/slider/slider (2).webp",
+    featuredImage: "/images/slider/slider (2).webp",
     author: {
       name: "خانم بهبودی",
-      avatar: "/public/EagerFav.png"
+      avatar: "/EagerFav.png"
     },
     category: "توسعه وب",
     tags: ["TypeScript", "Best Practices", "Development"],
@@ -48,10 +48,10 @@ const mockBlogPosts = [
     title: "انیمیشن‌های وب با Framer Motion: از مبتدی تا پیشرفته",
     slug: "framer-motion-animations",
     excerpt: "یاد بگیرید چگونه انیمیشن‌های حرفه‌ای و جذاب برای وبسایت‌تان با Framer Motion بسازید.",
-    featuredImage: "/public/images/slider/slider (3).webp",
+    featuredImage: "/images/slider/slider (3).webp",
     author: {
       name: "خانم بهبودی", 
-      avatar: "/public/EagerFav.png"
+      avatar: "/EagerFav.png"
     },
     category: "انیمیشن",
     tags: ["Framer Motion", "Animation", "React"],
@@ -317,9 +317,9 @@ const Blog: React.FC = () => {
           </motion.div>
         )}
 
-        {/* Footer */}
+        {/* Simple Footer */}
         <div dir="ltr">
-          <Footer />
+          <SimpleFooter />
         </div>
       </div>
     </div>
