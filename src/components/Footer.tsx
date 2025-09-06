@@ -37,19 +37,12 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-4 h-full justify-center items-center">
-            <h3 className="text-2xl font-bold text-center">لینک های سریع</h3>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2 max-w-xs">
-              {config.navigation.map((link) => (
-                <Link 
-                  key={link.name} 
-                  to={link.href} 
-                  className="text-white hover:text-blue-200 transition-colors duration-200 text-sm font-medium text-center"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
+          <div className="flex flex-col gap-5 h-full justify-center items-center">
+            <h3 className="text-3xl font-bold text-center">لینک های سریع</h3>
+            <Link to="/projects" className="item-footer">پروژه ها</Link>
+            <Link to="/blog" className="item-footer">وبلاگ ها</Link>
+            <Link to="/contact" className="item-footer">ارتباط با ما</Link>
+            <Link to="/login" className="item-footer">ورود یا ثبت نام</Link>
           </div>
           <div className="flex flex-col gap-4 h-full items-center">
             <h3 className="text-2xl font-bold text-center">راه های ارتباطی</h3>

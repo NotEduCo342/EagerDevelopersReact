@@ -8,8 +8,6 @@ import {
   FaArrowLeft 
 } from "react-icons/fa";
 import SimpleFooter from "../components/SimpleFooter";
-
-// Mock data for demonstration
 const mockBlogPosts = [
   {
     id: "1",
@@ -138,7 +136,7 @@ const Blog: React.FC = () => {
         >
           {/* Search Bar */}
           <div className="relative mb-8 max-w-md mx-auto">
-            <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" />
             <input
               type="text"
               placeholder="جستجو در مقالات..."
@@ -250,7 +248,7 @@ const Blog: React.FC = () => {
                 className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                transition={{ duration: 0.1 + index * 0.1 }}
                 whileHover={{ scale: 1.03, y: -5 }}
               >
                 <div className="relative">
