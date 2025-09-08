@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
       <div className="bg-gray-50 py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold font-Hilda text-cyan-500">
+            <h1 className="text-4xl md:text-6xl font-extrabold font-Hilda text-cyan-500">
               پروژه‌های ما
             </h1>
             <p className="text-lg text-gray-600 mt-4 font-Pelak">
