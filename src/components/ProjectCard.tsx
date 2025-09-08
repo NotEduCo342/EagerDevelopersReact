@@ -1,69 +1,35 @@
-import React, { useState, useRef } from "react";
-import type { ProjectCardProps } from '@/types';
+import type { ProjectCardProps } from "@/types";
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [hovered, setHovered] = useState<boolean>(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  let hoverTimeout: NodeJS.Timeout;
-
-  const handleMouseEnter = (): void => {
-    hoverTimeout = setTimeout(() => {
-      setHovered(true);
-      videoRef.current?.play();
-    }, 1000);
-  };
-
-  const handleMouseLeave = (): void => {
-    clearTimeout(hoverTimeout);
-    setHovered(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
   return (
-       // <Link to={`/projects/${project.id}`} className="block">
     <a href={project.addres} target="_blank" rel="noopener noreferrer">
       <div
-        className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 h-full font-Pelak relative"
+        className="group relative bg-white rounded-2xl shadow-md overflow-hidden transform hover:-translate-y-3 hover:shadow-xl transition-all duration-500 h-full font-Pelak border border-gray-100"
         dir="rtl"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
-   
-        {!hovered && (
+
+        <div className="relative w-full aspect-video overflow-hidden">
           <img
-            className="w-full h-57 object-cover"
+            className="w-full h-full object-cover rounded-t-2xl transition-transform duration-700 group-hover:scale-105"
             src={project.imageUrl}
             alt={project.title}
           />
-        )}
 
-     
-<video
-  ref={videoRef}
-  className={`w-full  rounded-t-lg  ${
-    hovered ? "block" : "hidden"
-  }`}
-  src={project.video}
-  muted
-  loop
-  playsInline
-/>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent rounded-t-2xl pointer-events-none" />
+        </div>
 
-
-      
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-2">
+        <div className="p-6 relative z-10">
+          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-sky-600 transition-colors">
             {project.title}
           </h3>
-          <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+          <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+            {project.description}
+          </p>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="bg-sky-100 text-sky-800 text-xs px-2.5 py-0.5 rounded-full"
+                className="bg-sky-50 text-sky-700 text-xs font-medium px-3 py-1 rounded-full shadow-sm"
               >
                 {tag}
               </span>

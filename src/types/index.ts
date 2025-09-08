@@ -4,7 +4,6 @@ export interface Project {
   addres: string; // Note: keeping original spelling for compatibility
   title: string;
   description: string;
-  video: string;
   imageUrl: string;
   tags: string[];
 }
