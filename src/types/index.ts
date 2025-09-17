@@ -12,6 +12,7 @@ export interface Project {
 export interface LoginFormValues {
   email: string;
   password: string;
+  rememberMe?: boolean; // New field for remember me functionality
 }
 
 export interface RegistrationFormValues {
@@ -25,6 +26,53 @@ export interface ContactFormValues {
   name: string;
   email: string;
   message: string;
+}
+
+export interface LogoutFormValues {
+  allDevices?: boolean;
+}
+
+// Authentication-related types
+export interface User {
+  id: string; // Backend uses CUID (string), not number
+  email: string;
+  username: string;
+  avatar?: string | null;
+  isAdmin: boolean; // Backend has admin field
+  failedLoginAttempts: number; // Backend security field
+  lockedUntil?: string | null; // Backend lockout field (ISO string)
+  lastLoginAt?: string | null; // Backend activity tracking
+  lastActiveAt?: string | null; // Backend activity tracking
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AuthTokens {
+  access_token: string;
+  refresh_token: string;
+}
+
+export interface LoginResponse {
+  access_token: string;
+  refresh_token: string;
+  user: User;
+}
+
+export interface RegisterResponse {
+  access_token: string;
+  refresh_token: string;
+  user: User;
+  message: string;
+}
+
+export interface UserSession {
+  id: string;
+  userAgent?: string;
+  ipAddress: string;
+  location?: string;
+  isActive: boolean;
+  lastUsed: string;
+  expiresAt: string;
 }
 
 // Component prop types
@@ -80,15 +128,6 @@ export interface AuthResponse {
   user: User;
   token: string;
   refreshToken: string;
-}
-
-export interface User {
-  id: string;
-  username: string;
-  email: string;
-  avatar?: string;
-  createdAt: string;
-  updatedAt: string;
 }
 
 // Error types

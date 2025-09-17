@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import { setupGlobalErrorHandlers } from "./utils/errorLogger";
+import { AuthProvider } from "./contexts/AuthContext";
 
 // Setup global error handlers for unhandled promises and JavaScript errors
 setupGlobalErrorHandlers();
@@ -14,7 +15,9 @@ if (!rootElement) throw new Error('Root element not found');
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

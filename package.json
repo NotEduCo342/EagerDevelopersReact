@@ -4,13 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode development",
+    "dev:prod": "vite --mode production",
+    "build": "vite build --mode production",
+    "build:dev": "vite build --mode development",
+    "build:staging": "vite build --mode staging",
+    "preview": "vite preview",
+    "preview:prod": "vite preview --mode production",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "env:check": "node scripts/check-env.js",
+    "env:switch": "node scripts/switch-env.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "axios": "^1.12.2",
     "bootstrap-icons": "^1.13.1",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.0",

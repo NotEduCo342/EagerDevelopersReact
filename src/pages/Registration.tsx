@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
-import { motion, Variants } from "framer-motion";
+import { Formik, Form, FormikHelpers } from "formik";
+import { motion } from "framer-motion";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock, FaCheck, FaUserPlus, FaArrowLeft } from "react-icons/fa";
-import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
+import { Link, useNavigate } from "react-router-dom";
+import { FaUser, FaEnvelope, FaUserPlus, FaArrowLeft } from "react-icons/fa";
 import type { RegistrationFormValues } from '@/types';
+import { useAuth } from '../contexts/AuthContext';
+import {
+  AuthPageBackground,
+  AuthFormContainer,
+  AuthFormField,
+  AuthPasswordField,
+  AuthSubmitButton,
+  AuthErrorDisplay,
+  containerVariants,
+  itemVariants
+} from '../components/auth';
 
 const RegistrationSchema = Yup.object().shape({
   username: Yup.string().required("وارد کردن نام کاربری الزامی است"),
@@ -26,94 +36,40 @@ const RegistrationSchema = Yup.object().shape({
 
 const Registration: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const { register, error, clearError } = useAuth();
 
-  const handleRegister = async (values: RegistrationFormValues, { setSubmitting }: FormikHelpers<RegistrationFormValues>): Promise<void> => {
+  const handleRegister = async (
+    values: RegistrationFormValues,
+    { setSubmitting }: FormikHelpers<RegistrationFormValues>
+  ): Promise<void> => {
     setIsSubmitting(true);
-    console.log("Registration form submitted with:", values);
+    clearError();
     
-    // Simulate API call
-    setTimeout(() => {
-      alert("Registration form submitted! Check the console for data.");
+    try {
+      console.log("Registration attempt with:", values);
+      await register(values.username, values.email, values.password, values.confirmPassword);
+      console.log("Registration successful");
+      
+      // After successful registration, redirect to login with success message
+      navigate('/login', { 
+        replace: true, 
+        state: { 
+          message: 'ثبت نام با موفقیت انجام شد! اکنون وارد حساب کاربری خود شوید.',
+          type: 'success'
+        }
+      });
+    } catch (error: any) {
+      console.error('Registration failed:', error);
+    } finally {
       setSubmitting(false);
       setIsSubmitting(false);
-    }, 2500);
-  };
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants: Variants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 relative overflow-hidden" dir="rtl">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-orange-200/30 to-red-300/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.4, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-10 -left-10 w-80 h-80 bg-gradient-to-br from-sky-200/30 to-blue-300/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1.3, 1, 1.3],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 32,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-br from-purple-200/20 to-pink-300/20 rounded-full blur-2xl"
-          animate={{
-            y: [-30, 30, -30],
-            x: [-15, 15, -15],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+    <div className="min-h-screen relative overflow-hidden" dir="rtl">
+      <AuthPageBackground theme="registration" />
 
       <motion.div
         className="container mx-auto px-6 py-8 relative z-0 min-h-screen flex items-center"
@@ -125,241 +81,104 @@ const Registration: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             
             {/* Left Side - Registration Form */}
-            <motion.div variants={cardVariants}>
-              <div className="bg-white/80 backdrop-blur-lg p-6 md:p-8 rounded-3xl shadow-2xl border border-white/20 max-w-md mx-auto lg:max-w-none">
-                {/* Header */}
-                <motion.div
-                  className="text-center mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <motion.h1 
-                    className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent font-Hilda mb-3"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    ایجاد حساب کاربری
-                  </motion.h1>
-                  <motion.div
-                    className="w-20 h-1 bg-gradient-to-r from-orange-400 to-red-600 mx-auto mb-3 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: 80 }}
-                    transition={{ duration: 1.5, delay: 0.7 }}
-                  />
-                  <p className="text-gray-600 font-Pelak">
-                    به جامعه توسعه‌دهندگان ما بپیوندید
-                  </p>
-                </motion.div>
+            <AuthFormContainer
+              title="ایجاد حساب کاربری"
+              subtitle="به خانواده ایگر دولوپرز بپیوندید!"
+              theme="registration"
+            >
+              <Formik
+                initialValues={{ 
+                  username: "", 
+                  email: "", 
+                  password: "", 
+                  confirmPassword: "" 
+                } as RegistrationFormValues}
+                validationSchema={RegistrationSchema}
+                onSubmit={handleRegister}
+              >
+                {({ isSubmitting: formikSubmitting, values }) => (
+                  <Form className="space-y-6">
+                    <AuthFormField
+                      name="username"
+                      type="text"
+                      label="نام کاربری"
+                      placeholder="نام کاربری خود را وارد کنید"
+                      icon={FaUser}
+                      theme="registration"
+                      delay={0.7}
+                    />
 
-                <Formik
-                  initialValues={{
-                    username: "",
-                    email: "",
-                    password: "",
-                    confirmPassword: "",
-                  }}
-                  validationSchema={RegistrationSchema}
-                  onSubmit={handleRegister}
-                >
-                  {({ isSubmitting: formikSubmitting, values }) => (
-                    <Form className="space-y-6">
-                      {/* Username Field */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.9 }}
-                      >
-                        <label className="block text-gray-700 font-bold mb-2 font-Pelak">
-                          <FaUser className="inline-block ml-2 text-orange-500" />
-                          نام کاربری
-                        </label>
-                        <Field name="username">
-                          {({ field, meta }: any) => (
-                            <motion.input
-                              {...field}
-                              type="text"
-                              placeholder="نام کاربری خود را انتخاب کنید"
-                              className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-all duration-300 text-right font-Pelak bg-gray-50/50 ${
-                                meta.touched && meta.error
-                                  ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                                  : 'border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-100'
-                              }`}
-                              whileFocus={{ scale: 1.02 }}
-                            />
-                          )}
-                        </Field>
-                        <ErrorMessage
-                          name="username"
-                          component="div"
-                          className="text-red-500 text-sm mt-2 font-Pelak"
-                        />
-                      </motion.div>
+                    <AuthFormField
+                      name="email"
+                      type="email"
+                      label="آدرس ایمیل"
+                      placeholder="example@domain.com"
+                      icon={FaEnvelope}
+                      theme="registration"
+                      delay={0.9}
+                    />
 
-                      {/* Email Field */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.1 }}
-                      >
-                        <label className="block text-gray-700 font-bold mb-2 font-Pelak">
-                          <FaEnvelope className="inline-block ml-2 text-orange-500" />
-                          آدرس ایمیل
-                        </label>
-                        <Field name="email">
-                          {({ field, meta }: any) => (
-                            <motion.input
-                              {...field}
-                              type="email"
-                              placeholder="example@domain.com"
-                              className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-all duration-300 text-right font-Pelak bg-gray-50/50 ${
-                                meta.touched && meta.error
-                                  ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                                  : 'border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-100'
-                              }`}
-                              whileFocus={{ scale: 1.02 }}
-                            />
-                          )}
-                        </Field>
-                        <ErrorMessage
-                          name="email"
-                          component="div"
-                          className="text-red-500 text-sm mt-2 font-Pelak"
-                        />
-                      </motion.div>
+                    <AuthPasswordField
+                      name="password"
+                      label="رمز عبور"
+                      placeholder="رمز عبور قوی انتخاب کنید"
+                      theme="registration"
+                      delay={1.1}
+                      showStrengthMeter={true}
+                      value={values.password}
+                    />
 
-                      {/* Password Field */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.3 }}
-                      >
-                        <label className="block text-gray-700 font-bold mb-2 font-Pelak">
-                          <FaLock className="inline-block ml-2 text-orange-500" />
-                          رمز عبور
-                        </label>
-                        <Field name="password">
-                          {({ field, meta }: any) => (
-                            <motion.input
-                              {...field}
-                              type="password"
-                              placeholder="رمز عبور قوی انتخاب کنید"
-                              className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-all duration-300 text-right font-Pelak bg-gray-50/50 ${
-                                meta.touched && meta.error
-                                  ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                                  : 'border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-100'
-                              }`}
-                              whileFocus={{ scale: 1.02 }}
-                            />
-                          )}
-                        </Field>
-                        <PasswordStrengthMeter password={values.password} />
-                        <ErrorMessage
-                          name="password"
-                          component="div"
-                          className="text-red-500 text-sm mt-2 font-Pelak"
-                        />
-                      </motion.div>
+                    <AuthPasswordField
+                      name="confirmPassword"
+                      label="تکرار رمز عبور"
+                      placeholder="رمز عبور را دوباره وارد کنید"
+                      theme="registration"
+                      delay={1.3}
+                    />
 
-                      {/* Confirm Password Field */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.5 }}
-                      >
-                        <label className="block text-gray-700 font-bold mb-2 font-Pelak">
-                          <FaCheck className="inline-block ml-2 text-orange-500" />
-                          تکرار رمز عبور
-                        </label>
-                        <Field name="confirmPassword">
-                          {({ field, meta }: any) => (
-                            <motion.input
-                              {...field}
-                              type="password"
-                              placeholder="رمز عبور را مجدداً وارد کنید"
-                              className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none transition-all duration-300 text-right font-Pelak bg-gray-50/50 ${
-                                meta.touched && meta.error
-                                  ? 'border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                                  : 'border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-100'
-                              }`}
-                              whileFocus={{ scale: 1.02 }}
-                            />
-                          )}
-                        </Field>
-                        <ErrorMessage
-                          name="confirmPassword"
-                          component="div"
-                          className="text-red-500 text-sm mt-2 font-Pelak"
-                        />
-                      </motion.div>
+                    <AuthErrorDisplay error={error} />
 
-                      {/* Submit Button */}
-                      <motion.div
-                        className="pt-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.7 }}
-                      >
-                        <motion.button
-                          type="submit"
-                          disabled={formikSubmitting || isSubmitting}
-                          className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold py-3 px-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 font-Pelak disabled:opacity-50 disabled:cursor-not-allowed"
-                          whileHover={{ scale: 1.02, y: -2 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          {isSubmitting ? (
-                            <motion.div className="flex items-center justify-center">
-                              <motion.div
-                                className="w-5 h-5 border-2 border-white border-t-transparent rounded-full ml-2"
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                              />
-                              در حال ثبت نام...
-                            </motion.div>
-                          ) : (
-                            <>
-                              <FaUserPlus className="inline-block ml-2" />
-                              ایجاد حساب کاربری
-                            </>
-                          )}
-                        </motion.button>
-                      </motion.div>
-                    </Form>
-                  )}
-                </Formik>
+                    <AuthSubmitButton
+                      isSubmitting={isSubmitting}
+                      isFormikSubmitting={formikSubmitting}
+                      loadingText="در حال ایجاد حساب..."
+                      submitText="ایجاد حساب کاربری"
+                      icon={FaUserPlus}
+                      theme="registration"
+                      delay={1.5}
+                    />
+                  </Form>
+                )}
+              </Formik>
 
-                {/* Footer Links */}
-                <motion.div
-                  className="mt-8 space-y-4 text-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.9 }}
-                >
-                  <p className="text-gray-600 font-Pelak">
-                    قبلاً حساب کاربری دارید؟{" "}
-                    <Link
-                      to="/login"
-                      className="font-semibold text-orange-600 hover:text-orange-800 transition-colors duration-300"
-                    >
-                      همین الان وارد شوید
-                    </Link>
-                  </p>
+              {/* Footer Links */}
+              <motion.div
+                className="mt-8 space-y-4 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.7 }}
+              >
+                <p className="text-gray-600 font-Pelak">
+                  قبلاً حساب کاربری دارید؟{" "}
                   <Link
-                    to="/"
-                    className="inline-flex items-center text-gray-500 hover:text-gray-700 font-medium font-Pelak transition-colors duration-300"
+                    to="/login"
+                    className="font-semibold text-orange-600 hover:text-orange-800 transition-colors duration-300"
                   >
-                    <FaArrowLeft className="ml-2" />
-                    بازگشت به صفحه اصلی
+                    همین الان وارد شوید
                   </Link>
-                </motion.div>
-              </div>
-            </motion.div>
+                </p>
+                <Link
+                  to="/"
+                  className="inline-flex items-center text-gray-500 hover:text-gray-700 font-medium font-Pelak transition-colors duration-300"
+                >
+                  <FaArrowLeft className="ml-2" />
+                  بازگشت به صفحه اصلی
+                </Link>
+              </motion.div>
+            </AuthFormContainer>
 
             {/* Right Side - Benefits & Features */}
-            <motion.div
-              className="hidden lg:block"
-              variants={itemVariants}
-            >
+            <motion.div className="hidden lg:block" variants={itemVariants}>
               <div className="text-center space-y-8">
                 {/* Logo & Brand */}
                 <motion.div
