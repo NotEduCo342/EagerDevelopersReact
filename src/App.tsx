@@ -14,6 +14,7 @@ const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const Registration = lazy(() => import('./pages/Registration'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
               </Route>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Registration />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </ErrorBoundary>
